@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgb(42, 2, 70);
+  /* border-bottom: 1px solid #e5e5e5; */
+}
+
+.nav-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-container ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-container li:hover {
+  color: #100325;
+  cursor: pointer;
+}
+
+/* hide default cursor */
+* {
+  cursor: none;
+}
+
+/* cursor core elements */
+.cursor-dot,
+.cursor-outline,
+.cursor-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  will-change: transform, opacity;
+}
+
+/* small inner dot */
+.cursor-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(179,28,161,0.9);
+  transform: translate(-50%, -50%);
+}
+
+/* larger outline that trails */
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 2px solid rgba(179,28,161,0.9); /* #B31CA1 */
+  background: rgba(255,255,255,0.03);
+  transition: width 160ms ease, height 160ms ease, opacity 160ms ease, transform 160ms ease;
+  mix-blend-mode: normal;
+}
+
+/* optional image cursor (hidden by default) */
+.cursor-image img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+/* state when hovering a magnet target (scales outline) */
+.cursor-outline.--magnet {
+  width: 68px;
+  height: 68px;
+  border-width: 2px;
+  opacity: 0.95;
+}
+
+/* small pressed state for dot */
+.cursor-dot.--active {
+  transform: translate(-50%, -50%) scale(0.85);
+}
+
+/* optional subtle transition for elements that will be magnetized */
+.magnet {
+  transition: transform 280ms cubic-bezier(.2,.8,.2,1), box-shadow 280ms;
+  will-change: transform;
+}
+
+/* example magnet hover lift (class applied via JS) */
+.magnet.--lift {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+}
+
+/* make .cursor-image hidden by default */
+.cursor-image { opacity: 0; transform: translate(-50%, -50%) scale(0.8); transition: opacity 180ms, transform 180ms; }
+.cursor-image.--visible { opacity: 1; transform: translate(-50%, -50%) scale(1); }
