@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { gsap } from "gsap";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 export default function HomePage() {
   useEffect(() => {
     gsap.from(".hero-text", {

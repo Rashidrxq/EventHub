@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.2.0",
     "bootstrap": "^5.3.8",
     "eventhub": "file:",
     "gsap": "^3.13.0",

@@ -3,6 +3,7 @@ import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Import your Cursor client component (make sure file exists at this path)
 import Cursor from "./components/Cursor";

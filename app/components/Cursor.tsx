@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Cursor() {
   const dotRef = useRef<HTMLDivElement | null>(null);
